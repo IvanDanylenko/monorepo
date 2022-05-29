@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "woordhunt-chinese": "apps/woordhunt-chinese",
+    "woordhunt-chinese-e2e": "apps/woordhunt-chinese-e2e"
+  }
+}
