@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@monorepo/next": ["libs/next/src"]
+      "@ivan/next": ["libs/next/src"],
+      "@ivan/next/*": ["libs/next/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
