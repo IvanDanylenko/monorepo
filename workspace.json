@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "crowdcoin": "apps/crowdcoin",
     "next": "libs/next",
     "woordhunt": "apps/woordhunt",
     "woordhunt-e2e": "apps/woordhunt-e2e"
