@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link as MuiLink } from '@mui/material';
+import { NextLink } from '@ivan/next';
 import { useTranslate } from '../../../../hooks';
-import NextLink from '../../internal/NextLink';
 import { LinkProps } from './types';
 
 const Link: FC<LinkProps> = ({ t, children, ...rest }) => {

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IconButton as MuiIconButton } from '@mui/material';
-import NextLink from '../../internal/NextLink';
+import { NextLink } from '@ivan/next';
 import { IconButtonProps } from './types';
 
 const IconButton: FC<IconButtonProps> = (props) => {

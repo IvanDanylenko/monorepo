@@ -1,1 +1,1 @@
-export * from './lib/next';
+export * from './components';

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import MuiButton from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
+import { NextLink } from '@ivan/next';
 import { useTranslate } from '../../../../hooks';
-import NextLink from '../../internal/NextLink';
 import { ButtonProps } from './types';
 
 const Button: FC<ButtonProps> = ({
