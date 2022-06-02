@@ -1,6 +1,6 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/woordhunt-chinese",
+  "sourceRoot": "apps/woordhunt",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/woordhunt-chinese",
-        "outputPath": "dist/apps/woordhunt-chinese"
+        "root": "apps/woordhunt",
+        "outputPath": "dist/apps/woordhunt"
       },
       "configurations": {
         "development": {},
@@ -20,16 +20,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "woordhunt-chinese:build",
+        "buildTarget": "woordhunt:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "woordhunt-chinese:build:development",
+          "buildTarget": "woordhunt:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "woordhunt-chinese:build:production",
+          "buildTarget": "woordhunt:build:production",
           "dev": false
         }
       }
@@ -37,14 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "woordhunt-chinese:build:production"
+        "buildTarget": "woordhunt:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/woordhunt-chinese"],
+      "outputs": ["coverage/apps/woordhunt"],
       "options": {
-        "jestConfig": "apps/woordhunt-chinese/jest.config.ts",
+        "jestConfig": "apps/woordhunt/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -52,7 +52,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/woordhunt-chinese/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/woordhunt/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

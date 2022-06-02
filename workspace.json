@@ -3,7 +3,7 @@
   "version": 2,
   "projects": {
     "next": "libs/next",
-    "woordhunt-chinese": "apps/woordhunt-chinese",
-    "woordhunt-chinese-e2e": "apps/woordhunt-chinese-e2e"
+    "woordhunt": "apps/woordhunt",
+    "woordhunt-e2e": "apps/woordhunt-e2e"
   }
 }
