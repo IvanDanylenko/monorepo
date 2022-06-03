@@ -1,0 +1,81 @@
+{
+  "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "sourceRoot": "apps/woordhunt-admin/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/woordhunt-admin",
+        "index": "apps/woordhunt-admin/src/index.html",
+        "baseHref": "/",
+        "main": "apps/woordhunt-admin/src/main.tsx",
+        "polyfills": "apps/woordhunt-admin/src/polyfills.ts",
+        "tsConfig": "apps/woordhunt-admin/tsconfig.app.json",
+        "assets": ["apps/woordhunt-admin/src/favicon.ico", "apps/woordhunt-admin/src/assets"],
+        "styles": ["apps/woordhunt-admin/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/woordhunt-admin/src/environments/environment.ts",
+              "with": "apps/woordhunt-admin/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "woordhunt-admin:build",
+        "hmr": true,
+        "host": "admin.woordhunt.loc"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "woordhunt-admin:build:development"
+        },
+        "production": {
+          "buildTarget": "woordhunt-admin:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/woordhunt-admin/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/woordhunt-admin"],
+      "options": {
+        "jestConfig": "apps/woordhunt-admin/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -4,7 +4,9 @@
   "projects": {
     "crowdcoin": "apps/crowdcoin",
     "next": "libs/next",
+    "ra-bridge": "libs/ra-bridge",
     "woordhunt": "apps/woordhunt",
+    "woordhunt-admin": "apps/woordhunt-admin",
     "woordhunt-e2e": "apps/woordhunt-e2e"
   }
 }

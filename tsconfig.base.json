@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@ivan/next": ["libs/next/src"],
-      "@ivan/next/*": ["libs/next/src/*"]
+      "@ivan/next/*": ["libs/next/src/*"],
+      "@ivan/ra-bridge": ["libs/ra-bridge/src"],
+      "@ivan/ra-bridge/*": ["libs/ra-bridge/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
