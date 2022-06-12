@@ -1,1 +1,3 @@
-export * from './lib/ra-bridge';
+export * from 'react-admin';
+
+export * from './providers';

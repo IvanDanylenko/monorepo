@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\WordResource;
 use App\Models\Word;
-use App\Http\Requests\StoreWordRequest;
-use App\Http\Requests\UpdateWordRequest;
+use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
@@ -13,74 +13,64 @@ class WordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $perPage = $request->get("per_page", 15);
+        return WordResource::collection(Word::paginate($perPage));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreWordRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWordRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'word' => 'required',
+            'pinin' => 'required',
+            'translation' => 'required',
+            'position' => 'required',
+        ]);
+
+        return ['data' => Word::create($request->all())];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Word  $word
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Word $word)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Word  $word
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Word $word)
-    {
-        //
+        return ['data' => Word::find($id)];
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateWordRequest  $request
-     * @param  \App\Models\Word  $word
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWordRequest $request, Word $word)
+    public function update(Request $request, $id)
     {
-        //
+        $word = Word::find($id);
+        $word->update($request->all());
+        return ['data' => $word];
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Word  $word
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Word $word)
+    public function destroy($id)
     {
-        //
+        Word::destroy($id);
+        return ['status' => true];
     }
 }
